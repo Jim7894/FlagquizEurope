@@ -68,7 +68,7 @@ public class PlayActivity extends AppCompatActivity {
         //buttonclick();
     }
 
-
+/*
     public void buttonclick()
     {
 
@@ -89,7 +89,7 @@ public class PlayActivity extends AppCompatActivity {
 
 
     }
-
+*/
     }
 
 
