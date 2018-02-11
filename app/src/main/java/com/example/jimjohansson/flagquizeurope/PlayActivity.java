@@ -57,7 +57,7 @@ public class PlayActivity extends AppCompatActivity {
         for (Button button : buttons) {
 
             int i;
-            // loopa tills vi får ett felaktigt svar
+            // loop till we get wrong answer
             do {
                 i = randomGenerator.nextInt(answers.length);
             } while (answers[i] == answers[randomFlagIndex]);
