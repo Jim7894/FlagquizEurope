@@ -100,9 +100,8 @@ public class PlayActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                      
                         points++;
-                        pointview.setText(String.valueOf(points));
-
                         fillScreen();
 
                         /*Intent myIntent = new Intent(PlayActivity.this,
