@@ -123,6 +123,7 @@ public class PlayActivity extends AppCompatActivity {
 
 
     }
+    /*
  public void RandomNumber(View view) {
 
      Intent intent = getIntent();
@@ -130,7 +131,7 @@ public class PlayActivity extends AppCompatActivity {
      startActivity(intent);
 
     }
-
+*/
 }
 
 
