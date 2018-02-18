@@ -30,5 +30,6 @@ public class MainActivity extends AppCompatActivity {
     private void openActivity2() {
         Intent intent = new Intent(this, PlayActivity.class);
         startActivity(intent);
+        finish();
     }
 }
