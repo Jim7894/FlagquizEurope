@@ -42,7 +42,7 @@ public class PlayActivity extends AppCompatActivity {
         b2 = (Button) findViewById(R.id.button6);
         b3 = (Button) findViewById(R.id.button7);
 
-        
+
         pointview.setText(String.valueOf(points));
 
 
