@@ -31,6 +31,8 @@ public class PlayActivity extends AppCompatActivity {
     List<String> answersOnButtons = new ArrayList<>();
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +44,9 @@ public class PlayActivity extends AppCompatActivity {
         b2 = (Button) findViewById(R.id.button6);
         b3 = (Button) findViewById(R.id.button7);
 
+
         fillScreen();
+
 
     }
 
@@ -69,6 +73,8 @@ public class PlayActivity extends AppCompatActivity {
         answersOnButtons.add(answers.get(rightAnswerIndex));
 
 
+
+
         //wrong buttons
         for (Button button : buttons) {
             int wrongAnswerIndex;
@@ -79,6 +85,8 @@ public class PlayActivity extends AppCompatActivity {
 
             button.setText(answers.get(wrongAnswerIndex));
             answersOnButtons.add(answers.get(wrongAnswerIndex));
+
+
 
 
             button.setOnClickListener(
@@ -100,13 +108,9 @@ public class PlayActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                      
+
                         points++;
                         fillScreen();
-
-                        /*Intent myIntent = new Intent(PlayActivity.this,
-                                PlayActivity.class);
-                        startActivity(myIntent);*/
 
 
                     }
@@ -115,7 +119,7 @@ public class PlayActivity extends AppCompatActivity {
 
         images.remove(rightAnswerIndex);
         answers.remove(rightAnswerIndex);
-
+        answersOnButtons.clear();
 
     }
 
