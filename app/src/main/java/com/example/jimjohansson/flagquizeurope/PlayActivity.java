@@ -123,14 +123,14 @@ public class PlayActivity extends AppCompatActivity {
 
 
     }
- /*public void RandomNumber(View view) {
+ public void RandomNumber(View view) {
 
      Intent intent = getIntent();
      finish();
      startActivity(intent);
 
     }
-*/
+
 }
 
 
