@@ -42,10 +42,12 @@ public class PlayActivity extends AppCompatActivity {
         b2 = (Button) findViewById(R.id.button6);
         b3 = (Button) findViewById(R.id.button7);
 
+        fillScreen();
 
+    }
+
+    private void fillScreen() {
         pointview.setText(String.valueOf(points));
-
-
         //note a single Random object is reused here
         Random randomGenerator = new Random();
 
@@ -53,8 +55,8 @@ public class PlayActivity extends AppCompatActivity {
 
         flagView.setImageResource(images.get(rightAnswerIndex));
 
-
         ArrayList<Button> buttons = new ArrayList<>();
+
         buttons.add(b1);
         buttons.add(b2);
         buttons.add(b3);
@@ -65,6 +67,7 @@ public class PlayActivity extends AppCompatActivity {
         buttons.remove(rightButton);
         rightButton.setText(answers.get(rightAnswerIndex));
         answersOnButtons.add(answers.get(rightAnswerIndex));
+
 
         //wrong buttons
         for (Button button : buttons) {
@@ -77,15 +80,13 @@ public class PlayActivity extends AppCompatActivity {
             button.setText(answers.get(wrongAnswerIndex));
             answersOnButtons.add(answers.get(wrongAnswerIndex));
 
+
             button.setOnClickListener(
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
 
-                            Intent myIntent = new Intent(PlayActivity.this,
-                                    PlayActivity.class);
-                            startActivity(myIntent);
-                            finish();
+                            fillScreen();
 
                         }
                     }
@@ -102,14 +103,11 @@ public class PlayActivity extends AppCompatActivity {
                         points++;
                         pointview.setText(String.valueOf(points));
 
+                        fillScreen();
 
-
-                            Intent myIntent = new Intent(PlayActivity.this,
-                                    PlayActivity.class);
-                            startActivity(myIntent);
-                        finish();
-
-
+                        /*Intent myIntent = new Intent(PlayActivity.this,
+                                PlayActivity.class);
+                        startActivity(myIntent);*/
 
 
                     }
@@ -120,18 +118,9 @@ public class PlayActivity extends AppCompatActivity {
         answers.remove(rightAnswerIndex);
 
 
-
-
     }
-    /*
- public void RandomNumber(View view) {
 
-     Intent intent = getIntent();
-     finish();
-     startActivity(intent);
 
-    }
-*/
 }
 
 
