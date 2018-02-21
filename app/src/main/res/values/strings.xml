@@ -1,4 +1,26 @@
 <resources>
-    <string name="app_name">Flag quiz Europe</string>
     <string name="title_activity_result">ResultActivity</string>
+    <string name="app_name">Flag quiz Europe</string>
+    <string name="welcome_headline">Welcome to Flag quiz Europe!</string>
+    <string name="play_button">PLAY</string>
+    <string name="play_headline">Which country does this flag belong to?</string>
+
+    <string name="sweden">Sweden</string>
+    <string name="estonia">Estonia</string>
+    <string name="poland">Poland</string>
+    <string name="luxembourg">Luxembourg</string>
+    <string name="ireland">Ireland</string>
+    <string name="hungary">Hungary</string>
+    <string name="belarus">Belarus</string>
+    <string name="russia">Russia</string>
+    <string name="slovenia">Slovenia</string>
+    <string name="greece">Greece</string>
+    <string name="moldova">Moldova</string>
+    <string name="monaco">Monaco</string>
+
+    <string name="result_headline">You got </string>
+    <string name="play_again">PLAY AGAIN</string>
+
+
+
 </resources>

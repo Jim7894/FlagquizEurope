@@ -16,6 +16,7 @@ import java.util.Random;
 
 public class PlayActivity extends AppCompatActivity {
 
+    public static String POINTS_KEY = "play_points";
     private ImageView flagView;
     private Button b1;
     private Button b2;
@@ -23,20 +24,20 @@ public class PlayActivity extends AppCompatActivity {
     private TextView pointview;
 
     private int current_image;
-    static int points = 0;
+    private int points = 0;
 
 
-    static List<Integer> images = new ArrayList(Arrays.asList(R.drawable.swedish_flag, R.drawable.estonian_flag, R.drawable.polish_flag, R.drawable.luxembourg_flag, R.drawable.ireland_flag, R.drawable.hungarian_flag, R.drawable.belarusian_flag, R.drawable.russian_flag, R.drawable.slovenian_flag, R.drawable.greek_flag, R.drawable.moldavian_flag, R.drawable.monaco_flag));
-    static List<String> answers = new ArrayList(Arrays.asList("Sweden", "Estonia", "Poland", "Luxembourg", "Ireland", "Hungary", "Belarus", "Russia", "Slovenia", "Greece", "Moldova", "Manoco"));
+    private List<Integer> images = new ArrayList(Arrays.asList(R.drawable.swedish_flag, R.drawable.estonian_flag, R.drawable.polish_flag, R.drawable.luxembourg_flag, R.drawable.ireland_flag, R.drawable.hungarian_flag, R.drawable.belarusian_flag, R.drawable.russian_flag, R.drawable.slovenian_flag, R.drawable.greek_flag, R.drawable.moldavian_flag, R.drawable.monaco_flag));
+    private List<String> answers;
     List<String> answersOnButtons = new ArrayList<>();
-
-
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
+
+        answers  = new ArrayList(Arrays.asList(getString(R.string.sweden), getString(R.string.estonia), getString(R.string.poland), getString(R.string.luxembourg), getString(R.string.ireland), getString(R.string.hungary), getString(R.string.belarus), getString(R.string.russia), getString(R.string.slovenia), getString(R.string.greece), getString(R.string.moldova), getString(R.string.monaco)));
 
         pointview = findViewById(R.id.textView3);
         flagView = (ImageView) findViewById(R.id.imageView4);
@@ -51,78 +52,83 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     private void fillScreen() {
-        pointview.setText(String.valueOf(points));
-        //note a single Random object is reused here
-        Random randomGenerator = new Random();
 
-        final int rightAnswerIndex = randomGenerator.nextInt(images.size());
+        if ( 2 < answers.size()) {
+            pointview.setText(String.valueOf(points));
+            //note a single Random object is reused here
+            Random randomGenerator = new Random();
 
-        flagView.setImageResource(images.get(rightAnswerIndex));
+            final int rightAnswerIndex = randomGenerator.nextInt(images.size());
 
-        ArrayList<Button> buttons = new ArrayList<>();
+            flagView.setImageResource(images.get(rightAnswerIndex));
 
-        buttons.add(b1);
-        buttons.add(b2);
-        buttons.add(b3);
+            ArrayList<Button> buttons = new ArrayList<>();
 
-        int rightButtonIndex = randomGenerator.nextInt(buttons.size());
+            buttons.add(b1);
+            buttons.add(b2);
+            buttons.add(b3);
 
-        final Button rightButton = buttons.get(rightButtonIndex);
-        buttons.remove(rightButton);
-        rightButton.setText(answers.get(rightAnswerIndex));
-        answersOnButtons.add(answers.get(rightAnswerIndex));
+            int rightButtonIndex = randomGenerator.nextInt(buttons.size());
 
-
-
-
-        //wrong buttons
-        for (Button button : buttons) {
-            int wrongAnswerIndex;
-            // loop till we get wrong answer
-            do {
-                wrongAnswerIndex = randomGenerator.nextInt(answers.size());
-            } while (answersOnButtons.contains(answers.get(wrongAnswerIndex)));
-
-            button.setText(answers.get(wrongAnswerIndex));
-            answersOnButtons.add(answers.get(wrongAnswerIndex));
+            final Button rightButton = buttons.get(rightButtonIndex);
+            buttons.remove(rightButton);
+            rightButton.setText(answers.get(rightAnswerIndex));
+            answersOnButtons.add(answers.get(rightAnswerIndex));
 
 
+            //wrong buttons
+            for (Button button : buttons) {
+                int wrongAnswerIndex;
+                // loop till we get wrong answer
+                do {
+                    wrongAnswerIndex = randomGenerator.nextInt(answers.size());
+                } while (answersOnButtons.contains(answers.get(wrongAnswerIndex)));
+
+                button.setText(answers.get(wrongAnswerIndex));
+                answersOnButtons.add(answers.get(wrongAnswerIndex));
 
 
-            button.setOnClickListener(
+                button.setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                fillScreen();
+
+                            }
+                        }
+
+
+                );
+
+            }
+
+            rightButton.setOnClickListener(
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
 
+                            points++;
                             fillScreen();
+
 
                         }
                     }
-
-
             );
 
+            images.remove(rightAnswerIndex);
+            answers.remove(rightAnswerIndex);
+            answersOnButtons.clear();
+
+
+        } else {
+            Intent intent = new Intent(this, ResultActivity.class);
+            intent.putExtra(POINTS_KEY, points);
+            startActivity(intent);
+            finish();
         }
 
-        rightButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        points++;
-                        fillScreen();
-
-
-                    }
-                }
-        );
-
-        images.remove(rightAnswerIndex);
-        answers.remove(rightAnswerIndex);
-        answersOnButtons.clear();
-
     }
-
 
 }
 

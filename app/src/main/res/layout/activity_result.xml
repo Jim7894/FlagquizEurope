@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_green_light"
     tools:context="com.example.jimjohansson.flagquizeurope.ResultActivity">
 
     <TextView
@@ -21,12 +22,13 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="107dp"
-        android:text="PLAY AGAIN"
+        android:text="@string/play_again"
+        android:textSize="16sp"
         tools:layout_editor_absoluteX="128dp"
         tools:layout_editor_absoluteY="320dp" />
 

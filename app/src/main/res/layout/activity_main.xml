@@ -14,7 +14,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="54dp"
-        android:text="Welcome to flag quiz Europe!"
+        android:text="@string/welcome_headline"
+        android:textColor="@android:color/black"
         android:textSize="20sp" />
 
     <Button
@@ -24,7 +25,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="58dp"
-        android:text="Play"
+        android:text="@string/play_button"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="130dp"
         tools:layout_editor_absoluteY="404dp" />
