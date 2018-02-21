@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Flag quiz Europe</string>
+    <string name="welcome_headline">Välkommen till Flag quiz Europe!</string>
+    <string name="play_button">SPELA</string>
+    <string name="play_headline">Vilket land tillhör denna flagga?</string>
+    <string name="sweden">Sverige</string>
+    <string name="estonia">Estland</string>
+    <string name="poland">Polen</string>
+    <string name="luxembourg">Luxemburg</string>
+    <string name="ireland">Irland</string>
+    <string name="hungary">Ungern</string>
+    <string name="belarus">Vitryssland</string>
+    <string name="russia">Ryssland</string>
+    <string name="slovenia">Slovenien</string>
+    <string name="greece">Grekland</string>
+    <string name="moldova">Moldavien</string>
+    <string name="monaco">Monaco</string>
+    <string name="result_headline">"Du fick "</string>
+    <string name="play_again">SPELA IGEN</string>
+
+
+</resources>
